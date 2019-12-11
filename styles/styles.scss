@@ -1,0 +1,716 @@
+// General
+
+ body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', 'Helvetica', sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: 'Bodoni';
+  src: url('.Fonts/BodoniBT-Bold.ttf') format('ttf'),
+       url('./Fonts/BodoniBT-BoldItalic.ttf') format('ttf');
+}
+
+
+
+
+
+// Variables & Mixins
+
+$mainColour: #d92e27;
+$secondaryColour: #E1D9C9;
+$mainTextColour: #000;
+$secondaryTextColour: #383838;
+$tertiaryTextColour: rgba(56,56,56, 0.53);
+
+$paragraphFontSize: 18px;
+
+@mixin redLineTop {
+  display: block;
+  content: '';
+  position: absolute;
+  background: #d92e27;
+}
+
+@mixin forPhone {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin forTablet {
+  @media (min-width: 601px) and (max-width: 900px) {
+    @content;
+  }
+}
+
+// Components
+
+.noPaddingS {
+  @include forPhone {
+    padding: 0 !important;
+  }
+
+  @include forTablet {
+    padding: 0 !important;
+  }
+}
+
+.sectionPadding {
+  padding: 4.5em 2em;
+
+  @include forPhone {
+    padding: 0 1.5em;
+    padding-bottom: 3em;
+  }
+}
+
+.redText {
+  color: $mainColour !important;
+}
+
+.lightGreyText {
+  color: $tertiaryTextColour;
+}
+
+.responsiveImg {
+  width: 100%;
+  height: auto;
+}
+
+.textAlignRight {
+  text-align: right;
+}
+
+.noOverflow {
+  overflow: hidden;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.extraSpacing {
+  letter-spacing: 0.1em;
+}
+
+.redSectionUnderline:after {
+  display: block;
+  content: '';
+  background: $mainColour;
+  height: 2px;
+  width: 50%;
+  margin: 3em auto;
+}
+
+.pushRight {
+  padding-left: 120px;
+
+  @include forPhone {
+    padding-left: 0;
+  }
+
+  @include forTablet {
+    padding-left: 0;
+  }
+}
+
+.pushBottom {
+  padding-top: 200px;
+
+  @include forPhone {
+    padding-top: 0;
+  }
+
+  @include forTablet {
+    padding-top: 0;
+  }
+}
+
+.extraPaddingTop {
+  padding-top: 10em;
+
+  @include forPhone {
+    padding-top: 2.5em;
+  }
+}
+
+.smaller {
+  max-width: 80%;
+  margin-left: 50px;
+}
+
+.relative {
+  position: relative;
+}
+
+.roundedImg {
+  border-radius: 50%;
+  max-width: 150px;
+}
+
+p .paragraph {
+  font-size: 18px !important;
+}
+
+.topPaddingS {
+  @include forPhone {
+    padding-top: 2em;
+  }
+
+  @include forTablet {
+    padding-top: 2em;
+  }
+}
+
+// Banner 
+
+.banner {
+  padding-bottom: 5em;
+
+  @include forPhone {
+    padding-bottom: 1.5em;
+  }
+
+  @include forTablet {
+    padding-bottom: 0;
+  }
+}
+
+
+.btnArea {
+  display: flex;
+  justify-content: flex-end;
+  width: 95%;
+  margin: 0 auto;
+
+  @include forPhone {
+    margin: 0;
+  }
+}
+
+.firstBtn {
+  background: $mainColour;
+  margin-top: 1em;
+  padding: 1em 3em;
+  border-radius: 28px;
+  text-transform: uppercase;
+  color: #fff !important;
+  font-size: 19.5px;
+  letter-spacing: 0.2em;
+}
+
+.buttons button {
+  background: none;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - 70px);
+  left: calc(70% - 75px);
+  
+  @include forPhone {
+    top: 25%;
+    left: 40%;
+    width: 80px;
+    
+  }
+
+}
+
+// Story
+
+.storyHeading {
+  font-size: 44px;
+  @include forPhone {
+    line-height: 45px;
+  }
+
+  @include forTablet {
+    line-height: 1em;
+  }
+}
+
+.emName {
+  font-size: 78px;
+  font-family: Bodoni;
+  color: $mainColour;
+}
+
+.storyIntro {
+  font-size: 30px;
+  color: #73737b;
+
+  @include forPhone {
+    text-align: justify;
+    font-size: 18px;
+  }
+}
+
+.info {
+  margin-top: 50px;
+  display: flex;
+
+  @include forPhone {
+    margin-top: 1em;
+    padding-bottom: 2em;
+  }
+}
+
+.underArrow,
+.underArrowNoLine {
+  margin-left: 15px;
+  cursor: pointer;
+  transition-duration: .3s;
+  margin-bottom: 2px;
+}
+
+.underArrow::after {
+  display: block;
+  content: '';
+  background: red;
+  height: 2px;
+  width: 250%;
+  margin: 5px 0 0 0;
+  transform: translate(-25%);
+}
+
+.productInfo:hover .underArrow {
+  transform: translate(15px);
+} 
+
+.productInfo {
+  font-weight: 700;
+}
+.bold7 {
+  font-weight: 700
+}
+
+// VideoSection
+
+.videoSection {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 0;
+  position: relative;
+
+  @include forPhone {
+    padding-right: 1.5em;
+  }
+}
+
+.videoIntro {
+  position: absolute;
+  top: 55%;
+  left: 50px;
+  z-index: 1000;
+
+  @include forPhone {
+    visibility: hidden;
+  }
+}
+
+.lineBfr {
+  margin-left: 20px;
+  font-size: 17px;
+}
+
+.video1 {
+  width: 100%;
+}
+
+.lineBfr::before {
+  display: inline-block;
+  content: '';
+  background: red;
+  height: 2px;
+  position: relative;
+  vertical-align: middle;
+  width: 50px;
+  margin-right: 20px;
+}
+
+.productCollection {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+
+  @include forPhone {
+    font-size: 35px;
+    padding-top: 0.5em;
+  }
+}
+
+// ProductIntro
+
+.productIntro {
+  font-size: 40px;
+  text-transform: uppercase;
+  padding-bottom: 1em;
+}
+
+.productIntro img:last-child {
+  width: 80%;
+  padding-top: 60px;
+  transform: translateX(10%);
+
+  @include forPhone {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5em 0.5em;
+    transform: none;
+  }
+}
+
+.prIntroText {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.scalingImg {
+  max-width: 40%;
+
+  &:nth-last-child(1) {
+    padding-left: 32px;
+  }
+}
+
+// Product Description
+
+.textShift {
+  width: 60%;
+  margin-left: 10em;
+  position: relative;
+
+  @include forPhone {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  @include forTablet {
+    width: 100%;
+    margin-left: 0;
+  }
+
+}
+
+.greyTextBg {
+  position: relative;
+
+  @include forPhone {
+    font-size: 30px;
+  }
+}
+
+.greyTextBg:after {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  background: $secondaryColour;
+  width: calc(200% - 10vw);
+  height: 35px;
+  z-index: -1;
+}
+
+.lineOnRight:after {
+  display: block;
+  content: "";
+  background: red;
+  height: 75%;
+  position: absolute;
+  vertical-align: middle;
+  width: 3px;
+  left: 115%;
+  top: -15%;
+
+  @include forTablet {
+    display: none;
+  }
+}
+
+.redLineVert {
+  padding-left: 3rem;
+
+  @include forPhone {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 2em;
+  }
+
+  @include forTablet {
+    padding-top: 2em;
+  }
+}
+
+.redLineVert:after {
+  display: block;
+  content: "";
+  position: absolute;
+  background: $mainColour;
+  width: 2px;
+  height: 20%;
+  margin-top: 2em;
+
+  @include forPhone {
+    display: none;
+  }
+
+  @include forTablet {
+    display: none;
+  }
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  background-image: none;
+}
+
+@media (min-width: 1200px) {
+  .carousel-control-next-icon {
+    margin-left: 50px;
+  }
+
+  .carousel-control-prev-icon {
+    margin-right: 50px;
+  }
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 100px;
+  color: #000;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 100px;
+  color: #000;
+}
+
+.carousel-inner {
+  max-width: 80%;
+  margin-left: 50px;
+
+  @include forPhone {
+    max-width: 60%;
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+
+  @include forTablet {
+    max-width: 70%;
+    margin: 0 auto;
+    margin-top: 2em;
+  }
+}
+
+//ProductFeatures
+
+.redLineTop1:before {
+  @include redLineTop;
+  width: 2px;
+  height: 150px;
+  left: 20%;
+  top: -200%;
+
+  @include forPhone {
+    display: none;
+  }
+
+  @include forTablet {
+    display: none;
+  }
+}
+
+@media (min-width: 901px) {
+  .remove {
+    display: none;
+  }
+}
+
+.top {
+  @include forTablet {
+    padding-top: 1em;
+  }
+}
+
+.redLineTop2:before {
+  @include redLineTop;
+  width: 2px;
+  height: 150px;
+  left: 20%;
+  top: -180px;
+
+  @include forPhone {
+    visibility: hidden;
+  }
+
+  @include forTablet {
+    visibility: hidden;
+  }
+}
+
+.featureNumber {
+  color: $tertiaryTextColour;
+  font-size: 72px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+
+  @include forPhone {
+    text-align: center;
+    padding-top: 0.5em;
+  }
+}
+
+.headingFeatures {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.imgNumber:after {
+  display: block;
+  content: "02";
+  position: absolute;
+  color: rgba(56, 56, 56, 0.53);
+  font-size: 72px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  top: 0;
+  left: 82%;
+
+  @include forPhone {
+    display: none;
+  }
+
+  @include forTablet {
+    display: none;
+  }
+}
+
+.customSpot {
+  text-align: right;
+  width: 60%;
+  transform: translateY(-3em);
+
+  @include forPhone {
+    text-align: center;
+    width: 100%;
+    transform: none;
+  }
+
+  @include forTablet {
+    text-align: left;
+    width: 100%;
+    transform: none;
+  }
+}
+
+// Story
+
+.yourStory:before {
+  display: block;
+  content: '';
+  background: $mainColour;
+  height: 2px;
+  width: 50%;
+  margin: 7em auto 6em;
+}
+
+.vStrong {
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.toolTipText {
+  margin-top: 1em;
+}
+
+.toolTipText p {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 1.5em 0.5em 0;
+}
+
+.toolTip img {
+  border: solid 5px rgba(217, 46, 39, 0);
+}
+
+.toolTip img:hover {
+  border: solid 5px rgba(217, 46, 39, 1);
+}
+
+.toolTip .toolTipText {
+  visibility: hidden;
+  min-width: 300px;
+  background-color: $secondaryColour;
+  color: #000;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  left: -20%;
+}
+
+.toolTip:hover .toolTipText {
+  visibility: visible;
+}
+
+.storyGrid {
+  display: flex;
+  padding: 4em 1em;
+}
+
+.influencer:hover .name:after {
+  transform: translateY(5px);
+}
+
+.name {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  transition: ease-in 0.5s;
+  p {
+    color: #aeaeb7;
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 180px;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 26px;
+  }
+
+  &:after {
+    display: block;
+    content: '\2197';
+    position: absolute;
+    background: $mainColour;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: #fff;
+    left: 100%;
+    top: 70%;
+  }
+}
+
+// Media Queries
+
+
+
